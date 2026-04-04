@@ -152,8 +152,7 @@ body::before {
   color: var(--text-dim);
   letter-spacing: 0.18em;
   margin-bottom: 1.5rem;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards 0.1s;
+  animation: fadeUp 0.7s ease both 0.1s;
 }
 
 .hero-name {
@@ -163,8 +162,7 @@ body::before {
   letter-spacing: -0.045em;
   margin-bottom: 1.2rem;
   color: var(--text-primary);
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards 0.2s;
+  animation: fadeUp 0.7s ease both 0.2s;
 }
 
 .hero-name span {
@@ -177,8 +175,7 @@ body::before {
   color: var(--text-muted);
   margin-bottom: 2.2rem;
   letter-spacing: 0.04em;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards 0.35s;
+  animation: fadeUp 0.7s ease both 0.35s;
 }
 
 .status-row {
@@ -186,8 +183,7 @@ body::before {
   align-items: center;
   gap: 8px;
   margin-bottom: 2.2rem;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards 0.45s;
+  animation: fadeUp 0.7s ease both 0.45s;
 }
 
 .status-dot {
@@ -214,8 +210,7 @@ body::before {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards 0.55s;
+  animation: fadeUp 0.7s ease both 0.55s;
 }
 
 .link-btn {
@@ -263,13 +258,22 @@ body::before {
 .section {
   margin-bottom: 4rem;
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .section.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Fallback: if JS hasn't run yet after 1s, show sections anyway */
+.section {
+  animation: sectionFallback 0s ease 1.5s both;
+}
+
+@keyframes sectionFallback {
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .section-label {
